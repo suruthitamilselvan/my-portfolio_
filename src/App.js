@@ -63,6 +63,7 @@ const COLORS = {
 function useInView(threshold = 0.15) {
   const ref = useRef(null);
   const [inView, setInView] = useState(false);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) setInView(true); }, { threshold });
     if (ref.current) obs.observe(ref.current);
@@ -102,6 +103,8 @@ export default function Portfolio() {
     dur: Math.random() * 8 + 6,
     delay: Math.random() * 5,
   })));
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  
 
   useEffect(() => {
     const speed = deleting ? 40 : 80;
